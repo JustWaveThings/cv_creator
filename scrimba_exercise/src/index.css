@@ -15,4 +15,11 @@ p {
 body {
 	margin: 0;
 	font-family: 'Inter', sans-serif;
+	background-color: antiquewhite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100dvh;
+	background-color: antiquewhite;
+	opacity: 0.8;
 }
