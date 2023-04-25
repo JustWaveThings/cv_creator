@@ -34,11 +34,30 @@ main {
 	background-color: tan;
 }
 
-.general {
+.general,
+.education,
+.experience {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: flex-start;
 	gap: 0.5rem;
 	margin-left: 2rem;
+}
+
+div {
+	display: flex;
+}
+
+.input--container {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 0.5rem;
+	margin-left: 2rem;
+}
+
+label {
+	font-weight: bold;
+	font-size: 0.75rem;
 }
