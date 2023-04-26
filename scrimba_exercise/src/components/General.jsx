@@ -10,27 +10,36 @@ class General extends Component {
 			<section className=" general ">
 				<h4>Contact Information</h4>
 				<Input
-					label="First Name"
-					name="firstName"
-					placeholder=""
+					placeholder="First Name"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.firstName}
 				/>
 				<Input
-					label="Last Name"
-					name="lastName"
-					placeholder=""
+					placeholder="Last Name"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.lastName}
 				/>
 				<Input
-					label="Email"
-					name="email"
-					placeholder="youremail@email.com"
+					placeholder="Title"
+					type="text"
+					handleChange={this.props.handleChange}
+					editStatus={this.props.editStatus}
+					value={this.props.lastName}
+				/>
+				<Input
+					placeholder="Address"
+					type="text"
+					handleChange={this.props.handleChange}
+					editStatus={this.props.editStatus}
+					value={this.props.lastName}
+				/>
+
+				<Input
+					placeholder="Email"
 					type="email"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
@@ -39,17 +48,19 @@ class General extends Component {
 				<Input
 					label="Phone Number"
 					name="phoneNumber"
-					placeholder=" (888) 123-4567"
+					placeholder="Phone Number"
 					type="tel"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.phoneNumber}
 				/>
-				<div>
-					<button onClick={this.props.handleSubmit}>
-						{this.props.editStatus ? 'Submit' : 'Edit'}
-					</button>
-				</div>
+				<Input
+					placeholder="Description"
+					type="text"
+					handleChange={this.props.handleChange}
+					editStatus={this.props.editStatus}
+					value={this.props.lastName}
+				/>
 			</section>
 		);
 	}

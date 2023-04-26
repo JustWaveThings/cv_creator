@@ -7,36 +7,42 @@ class Education extends Component {
 			<section className="education">
 				<h4>Education</h4>
 				<Input
-					label="School Name"
-					name="schoolName"
-					placeholder=""
+					placeholder="Institution Name"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.schoolName}
 				/>
 				<Input
-					label="Title of Study"
-					name="titleOfStudy"
-					placeholder=""
+					placeholder="City"
+					type="text"
+					handleChange={this.props.handleChange}
+					editStatus={this.props.editStatus}
+					value={this.props.schoolName}
+				/>
+				<Input
+					placeholder="Degree or Certification"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.titleOfStudy}
 				/>
 				<Input
-					label="Date of Study"
-					name="dateOfStudy"
-					placeholder=""
+					placeholder="GPA"
+					type="text"
+					handleChange={this.props.handleChange}
+					editStatus={this.props.editStatus}
+					value={this.props.titleOfStudy}
+				/>
+				<Input
+					placeholder="Year Completed"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.dateOfStudy}
 				/>
-				<div>
-					<button onClick={this.props.handleSubmit}>
-						{this.props.editStatus ? 'Submit' : 'Edit'}
-					</button>
+				<div className="buttonContainer">
+					<button>Delete</button>
 					<button onClick={this.props.handleAddNew}>Add New</button>
 				</div>
 			</section>

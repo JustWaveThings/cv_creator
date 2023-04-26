@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	/* border: 2px dotted green; */
 }
 
 h1,
@@ -14,24 +15,56 @@ p {
 
 body {
 	margin: 0;
-	font-family: 'Inter', sans-serif;
+	padding: 0;
+}
+#root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	min-width: 100%;
+
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #bbb7b7;
 }
 
 h1 {
 	color: white;
+	font-family: 'Bungee Shade', cursive;
+	font-size: 2rem;
+	text-shadow: rgba(0, 0, 0, 0.35) 0px 10px 10px;
 }
 
-main {
-	display: flex;
-	justify-content: flex-start;
-	gap: 4rem;
-	flex-direction: column;
-	align-items: flex-start;
-	height: 100dvh;
-	min-width: 80dvw;
-	margin-left: 3rem;
+h4 {
 	margin-top: 1rem;
-	background-color: tan;
+	color: rgba(40, 40, 40, 0.682);
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.2rem;
+	text-shadow: rgba(0, 0, 0, 0.144) 0px 5px 15px;
+}
+
+.navbar,
+footer {
+	width: 100%;
+	text-align: center;
+	padding: 1rem 0rem;
+	background-color: #7f7d7d;
+}
+
+section.input {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-top: 2rem;
+	padding-bottom: 1rem;
+	background-color: #e0dede;
+	border-radius: 0.5rem;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	width: 620px;
 }
 
 .general,
@@ -49,15 +82,70 @@ div {
 	display: flex;
 }
 
-.input--container {
+.input--container,
+.buttonContainer {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-evenly;
-	align-items: center;
+	align-items: flex-start;
 	gap: 0.5rem;
 	margin-left: 2rem;
+	width: 500px;
+}
+input {
+	width: 100%;
+	border-radius: 0.25rem;
+	border: none;
+	height: 1.5rem;
+	text-indent: 0.25rem;
+}
+
+input:focus {
+	outline: 2px solid #7f7d7d;
+}
+
+input[placeholder='Description'],
+input[placeholder='Duties / Achievements'] {
+	height: 4rem;
+	text-indent: 0.25rem;
 }
 
 label {
 	font-weight: bold;
 	font-size: 0.75rem;
+}
+
+button {
+	width: 100%;
+	border-radius: 0.25rem;
+	border: none;
+	height: 1.5rem;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	font-size: 0.75rem;
+	cursor: pointer;
+	display: flex;
+	padding: 1rem 0rem;
+	justify-content: center;
+	align-items: center;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+button:focus {
+	scale: 101%;
+	opacity: 0.8;
+}
+
+button.display {
+	margin-top: 1rem;
+	background-color: rgba(0, 128, 0, 0.677);
+}
+
+p {
+	font-size: 0.75rem;
+	color: white;
+	text-shadow: rgba(0, 0, 0, 0.35) 0px 10px 10px;
 }

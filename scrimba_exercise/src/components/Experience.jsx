@@ -6,55 +6,53 @@ class Experience extends Component {
 			<section className="experience">
 				<h4>Experience</h4>
 				<Input
-					label="Company Name"
-					name="companyName"
-					placeholder=""
+					placeholder="Company"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.companyName}
 				/>
 				<Input
-					label="Position Title"
-					name="positionTitle"
-					placeholder=""
+					placeholder="Position Title"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.positionTitle}
 				/>
 				<Input
-					label="Main Tasks"
-					name="mainTasks"
-					placeholder=""
+					placeholder="Location"
+					type="text"
+					handleChange={this.props.handleChange}
+					editStatus={this.props.editStatus}
+					value={this.props.positionTitle}
+				/>
+				<Input
+					placeholder="Duties / Achievements"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.mainTasks}
 				/>
 				<Input
-					label="Start Date"
-					name="fromDate"
-					placeholder=""
-					type="date"
+					placeholder="From"
+					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.fromDate}
 				/>
 				<Input
-					label="End Date or Current"
-					name="toDate"
-					placeholder=""
-					type="date"
+					placeholder="To or Present"
+					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.toDate}
 				/>
 
-				<div>
-					<button onClick={this.props.handleSubmit}>
+				<div className="buttonContainer">
+					{/* <button onClick={this.props.handleSubmit}>
 						{this.props.editStatus ? 'Submit' : 'Edit'}
-					</button>
+					</button> */}
+					<button>Delete</button>
 					<button onClick={this.props.handleAddNew}>Add New</button>
 				</div>
 			</section>
