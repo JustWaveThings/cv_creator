@@ -17,16 +17,19 @@ class App extends Component {
 			phoneNumber: '',
 			address: '',
 			description: '',
-		};
-		/* education: [
+			education: [
 				{
 					id: nanoid(),
-					schoolName: '',
-					titleOfStudy: '',
+					institutionName: '',
+					city: '',
+					degree: '',
+					gpa: '',
 					graduatedYear: '',
 				},
 			],
-			experience: [
+		};
+
+		/*	experience: [
 				{
 					id: nanoid(),
 					companyName: '',
@@ -39,12 +42,29 @@ class App extends Component {
 	}
 
 	handleChange = e => {
-		this.setState(prevState => {
-			return {
-				...prevState,
-				[e.target.name]: e.target.value,
-			};
-		});
+		const inputSection = e.target.parentElement.parentElement.className;
+
+		if (inputSection === 'general') {
+			this.setState(prevState => {
+				return {
+					...prevState,
+					[e.target.name]: e.target.value,
+				};
+			});
+		}
+		if (inputSection === 'education') {
+			this.setState(prevState => {
+				return {
+					...prevState,
+					education: [
+						{
+							...prevState.education[0],
+							[e.target.name]: e.target.value,
+						},
+					],
+				};
+			});
+		}
 	};
 
 	handleSubmit = () => {
@@ -56,17 +76,35 @@ class App extends Component {
 		});
 	};
 
-	handleAddNew = () => {
+
+	handleAddNewEdu = () => {
 		//
 		console.log('addNew clicked');
-	};
+		//
+		this.setState
+
+	/* handleAddNewEdu = () => {
+		//
+		console.log('addNew clicked');
+		//
+		let newEduList = [];
+
+		const newEdu = [
+			<Education
+				key={nanoid()}
+				handleChange={this.handleChange}
+				institutionName={this.state.education[0].institutionName}
+				city={this.state.education[0].city}
+				degree={this.state.education[0].degree}
+				gpa={this.state.education[0].gpa}
+				graduatedYear={this.state.education[0].graduatedYear}
+			/>,
+		];
+		newEduList.push(newEdu);
+		return newEduList;
+	}; */
 
 	render() {
-		//console.log('App state: ', this.state);
-		/* 	console.log(this.state.editable);
-		console.log(this.state.education[0].editable);
-		console.log(this.state.experience[0].editable); */
-
 		return (
 			<>
 				<nav className="navbar">
@@ -85,15 +123,14 @@ class App extends Component {
 								description={this.state.description}
 								title={this.state.title}
 							/>
-							{/* <Education
-							handleChange={this.handleChange}
-							handleSubmit={this.handleSubmit}
-							handleAddNew={this.handleAddNew}
 
-							schoolName={this.state.education[1].schoolName}
-							titleOfStudy={this.state.education[1].titleOfStudy}
-							graduatedYear={this.state.education[1].graduatedYear}
-						/>
+							{this.handleAddNewEdu()}
+
+							<div className="buttonContainer">
+								{/* <button>Delete</button> */}
+								<button onClick={this.handleAddNewEdu}>Add Education</button>
+							</div>
+							{/*
 						<Experience
 							handleChange={this.handleChange}
 							handleSubmit={this.handleSubmit}
