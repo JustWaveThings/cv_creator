@@ -9,17 +9,14 @@ class App extends Component {
 		super(props);
 
 		this.state = {
+			editable: true,
 			general: {
-				editable: true,
 				firstName: '',
 				lastName: '',
 				email: '',
 				phoneNumber: '',
 			},
-			education: [
-				{
-					editable: true,
-				},
+			/* education: [
 				{
 					id: nanoid(),
 					schoolName: '',
@@ -29,9 +26,6 @@ class App extends Component {
 			],
 			experience: [
 				{
-					editable: true,
-				},
-				{
 					id: nanoid(),
 					companyName: '',
 					positionTitle: '',
@@ -39,7 +33,7 @@ class App extends Component {
 					fromDate: '',
 					toDate: '',
 				},
-			],
+			], */
 		};
 	}
 
@@ -57,10 +51,8 @@ class App extends Component {
 	handleSubmit = () => {
 		this.setState(prevState => {
 			return {
-				general: {
-					...prevState.general,
-					editable: !prevState.general.editable,
-				},
+				...prevState,
+				editable: !prevState.editable,
 			};
 		});
 	};
@@ -82,21 +74,21 @@ class App extends Component {
 					<h1>RESUME CREATOR</h1>
 				</nav>
 				<main>
-					<section class="input">
-						<General
-							handleChange={this.handleChange}
-							handleSubmit={this.handleSubmit}
-							editStatus={this.state.general.editable}
-							firstName={this.state.general.firstName}
-							lastName={this.state.general.lastName}
-							email={this.state.general.email}
-							phoneNumber={this.state.general.phoneNumber}
-						/>
-						<Education
+					{this.state.editable && (
+						<section className="input">
+							<General
+								handleChange={this.handleChange}
+								editStatus={this.state.editable}
+								firstName={this.state.general.firstName}
+								lastName={this.state.general.lastName}
+								email={this.state.general.email}
+								phoneNumber={this.state.general.phoneNumber}
+							/>
+							{/* <Education
 							handleChange={this.handleChange}
 							handleSubmit={this.handleSubmit}
 							handleAddNew={this.handleAddNew}
-							editStatus={this.state.education[0].editable}
+							editStatus={this.state.editable}
 							schoolName={this.state.education[1].schoolName}
 							titleOfStudy={this.state.education[1].titleOfStudy}
 							graduatedYear={this.state.education[1].graduatedYear}
@@ -105,28 +97,30 @@ class App extends Component {
 							handleChange={this.handleChange}
 							handleSubmit={this.handleSubmit}
 							handleAddNew={this.handleAddNew}
-							editStatus={this.state.experience[0].editable}
+							editStatus={this.state.editable}
 							companyName={this.state.experience[1].companyName}
 							positionTitle={this.state.experience[1].positionTitle}
 							mainTasks={this.state.experience[1].mainTasks}
 							fromDate={this.state.experience[1].fromDate}
 							toDate={this.state.experience[1].toDate}
-						/>
-					</section>
+						/> */}
+						</section>
+					)}
 					<nav className="nav-preview">
 						<h4>Preview Resume</h4>
 						<button
 							className="
 						display"
-							onClick={this.props.handleSubmit}
+							onClick={this.handleSubmit}
 						>
-							{this.props.editStatus ? 'Submit' : 'Display Resume'}
+							{!this.state.editable ? 'Display Input Fields' : 'Display Resume'}
 						</button>
 					</nav>
-					<section class="display">
+					<section className="display">
 						<Display />
 					</section>
 				</main>
+
 				<footer>
 					<p>© JustWaveThings</p>
 				</footer>
