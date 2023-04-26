@@ -28,9 +28,7 @@ class App extends Component {
 					graduatedYear: '',
 				},
 			],
-		};
-
-		/*	experience: [
+			experience: [
 				{
 					id: nanoid(),
 					companyName: '',
@@ -39,7 +37,8 @@ class App extends Component {
 					fromDate: '',
 					toDate: '',
 				},
-			], */
+			],
+		};
 	}
 
 	handleChange = (e, eduIndex) => {
@@ -82,8 +81,6 @@ class App extends Component {
 	};
 
 	handleAddNewEdu = () => {
-		console.log('addNew clicked');
-
 		this.setState(prevState => {
 			const newEdu = {
 				id: nanoid(),
@@ -97,6 +94,17 @@ class App extends Component {
 			return {
 				...prevState,
 				education: [...prevState.education, newEdu],
+			};
+		});
+	};
+	handleDeleteEdu = (e, eduIndex) => {
+		this.setState(prevState => {
+			const updatedEducation = prevState.education.filter((edu, index) => {
+				return index !== eduIndex;
+			});
+			return {
+				...prevState,
+				education: updatedEducation,
 			};
 		});
 	};
@@ -130,6 +138,7 @@ class App extends Component {
 										key={edu.id}
 									>
 										<Education
+											handleDeleteEdu={e => this.handleDeleteEdu(e, index)}
 											handleChange={e => this.handleChange(e, index)}
 											institutionName={edu.institutionName}
 											city={edu.city}

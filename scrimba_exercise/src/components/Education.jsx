@@ -40,6 +40,12 @@ class Education extends Component {
 					handleChange={this.props.handleChange}
 					value={this.props.graduatedYear}
 				/>
+				<button
+					onClick={this.props.handleDeleteEdu}
+					id={this.props.id}
+				>
+					delete
+				</button>
 			</section>
 		);
 	}
