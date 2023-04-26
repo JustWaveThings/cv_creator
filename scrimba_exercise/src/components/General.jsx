@@ -8,7 +8,6 @@ class General extends Component {
 	render() {
 		return (
 			<section className="general">
-				<h4>Contact Information</h4>
 				<Input
 					name="firstName"
 					placeholder="First Name"

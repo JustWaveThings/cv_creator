@@ -10,6 +10,7 @@ class App extends Component {
 
 		this.state = {
 			editable: true,
+
 			firstName: '',
 			lastName: '',
 			title: '',
@@ -41,7 +42,7 @@ class App extends Component {
 			], */
 	}
 
-	handleChange = e => {
+	handleChange = (e, eduIndex) => {
 		const inputSection = e.target.parentElement.parentElement.className;
 
 		if (inputSection === 'general') {
@@ -54,14 +55,18 @@ class App extends Component {
 		}
 		if (inputSection === 'education') {
 			this.setState(prevState => {
+				const updatedEducation = prevState.education.map((edu, index) => {
+					if (index === eduIndex) {
+						return {
+							...edu,
+							[e.target.name]: e.target.value,
+						};
+					}
+					return edu;
+				});
 				return {
 					...prevState,
-					education: [
-						{
-							...prevState.education[0],
-							[e.target.name]: e.target.value,
-						},
-					],
+					education: updatedEducation,
 				};
 			});
 		}
@@ -76,35 +81,28 @@ class App extends Component {
 		});
 	};
 
-
 	handleAddNewEdu = () => {
-		//
 		console.log('addNew clicked');
-		//
-		this.setState
 
-	/* handleAddNewEdu = () => {
-		//
-		console.log('addNew clicked');
-		//
-		let newEduList = [];
+		this.setState(prevState => {
+			const newEdu = {
+				id: nanoid(),
+				institutionName: '',
+				city: '',
+				degree: '',
+				gpa: '',
+				graduatedYear: '',
+			};
 
-		const newEdu = [
-			<Education
-				key={nanoid()}
-				handleChange={this.handleChange}
-				institutionName={this.state.education[0].institutionName}
-				city={this.state.education[0].city}
-				degree={this.state.education[0].degree}
-				gpa={this.state.education[0].gpa}
-				graduatedYear={this.state.education[0].graduatedYear}
-			/>,
-		];
-		newEduList.push(newEdu);
-		return newEduList;
-	}; */
+			return {
+				...prevState,
+				education: [...prevState.education, newEdu],
+			};
+		});
+	};
 
 	render() {
+		console.log(this.state);
 		return (
 			<>
 				<nav className="navbar">
@@ -113,6 +111,7 @@ class App extends Component {
 				<main>
 					{this.state.editable && (
 						<section className="input">
+							<h4>Contact Information</h4>
 							<General
 								handleChange={e => this.handleChange(e)}
 								firstName={this.state.firstName}
@@ -123,8 +122,24 @@ class App extends Component {
 								description={this.state.description}
 								title={this.state.title}
 							/>
-
-							{this.handleAddNewEdu()}
+							<h4>Education</h4>
+							{this.state.education.map((edu, index) => {
+								return (
+									<div
+										className="edu-cont"
+										key={edu.id}
+									>
+										<Education
+											handleChange={e => this.handleChange(e, index)}
+											institutionName={edu.institutionName}
+											city={edu.city}
+											degree={edu.degree}
+											gpa={edu.gpa}
+											graduatedYear={edu.graduatedYear}
+										/>
+									</div>
+								);
+							})}
 
 							<div className="buttonContainer">
 								{/* <button>Delete</button> */}

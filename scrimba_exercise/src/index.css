@@ -44,6 +44,8 @@ h4 {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1.2rem;
 	text-shadow: rgba(0, 0, 0, 0.144) 0px 5px 15px;
+	margin-left: 3rem;
+	margin-bottom: 0.75rem;
 }
 
 .navbar,
@@ -148,4 +150,10 @@ p {
 	font-size: 0.75rem;
 	color: white;
 	text-shadow: rgba(0, 0, 0, 0.35) 0px 10px 10px;
+}
+
+.edu-cont {
+	margin: 0.75rem 0;
+	display: flex;
+	flex-direction: column;
 }

@@ -5,7 +5,6 @@ class Education extends Component {
 	render() {
 		return (
 			<section className="education">
-				<h4>Education</h4>
 				<Input
 					name="institutionName"
 					placeholder="Institution Name"
