@@ -4,8 +4,8 @@ class Experience extends Component {
 	render() {
 		return (
 			<section className="experience">
-				<h4>Experience</h4>
 				<Input
+					name="companyName"
 					placeholder="Company"
 					type="text"
 					handleChange={this.props.handleChange}
@@ -13,6 +13,7 @@ class Experience extends Component {
 					value={this.props.companyName}
 				/>
 				<Input
+					name="positionTitle"
 					placeholder="Position Title"
 					type="text"
 					handleChange={this.props.handleChange}
@@ -20,11 +21,12 @@ class Experience extends Component {
 					value={this.props.positionTitle}
 				/>
 				<Input
+					name="location"
 					placeholder="Location"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
-					value={this.props.positionTitle}
+					value={this.props.location}
 				/>
 				<Input
 					placeholder="Duties / Achievements"
@@ -34,6 +36,7 @@ class Experience extends Component {
 					value={this.props.mainTasks}
 				/>
 				<Input
+					name="fromDate"
 					placeholder="From"
 					type="text"
 					handleChange={this.props.handleChange}
@@ -41,20 +44,19 @@ class Experience extends Component {
 					value={this.props.fromDate}
 				/>
 				<Input
+					name="toDate"
 					placeholder="To or Present"
 					type="text"
 					handleChange={this.props.handleChange}
 					editStatus={this.props.editStatus}
 					value={this.props.toDate}
 				/>
-
-				<div className="buttonContainer">
-					{/* <button onClick={this.props.handleSubmit}>
-						{this.props.editStatus ? 'Submit' : 'Edit'}
-					</button> */}
-					<button>Delete</button>
-					<button onClick={this.props.handleAddNew}>Add New</button>
-				</div>
+				<button
+					onClick={this.props.handleDeleteExp}
+					id={this.props.id}
+				>
+					delete
+				</button>
 			</section>
 		);
 	}

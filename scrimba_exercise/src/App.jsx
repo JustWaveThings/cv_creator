@@ -33,6 +33,7 @@ class App extends Component {
 					id: nanoid(),
 					companyName: '',
 					positionTitle: '',
+					location: '',
 					mainTasks: '',
 					fromDate: '',
 					toDate: '',
@@ -66,6 +67,23 @@ class App extends Component {
 				return {
 					...prevState,
 					education: updatedEducation,
+				};
+			});
+		}
+		if (inputSection === 'experience') {
+			this.setState(prevState => {
+				const updatedExperience = prevState.experience.map((exp, index) => {
+					if (index === eduIndex) {
+						return {
+							...exp,
+							[e.target.name]: e.target.value,
+						};
+					}
+					return exp;
+				});
+				return {
+					...prevState,
+					experience: updatedExperience,
 				};
 			});
 		}
@@ -105,6 +123,36 @@ class App extends Component {
 			return {
 				...prevState,
 				education: updatedEducation,
+			};
+		});
+	};
+
+	handleAddNewExp = () => {
+		this.setState(prevState => {
+			const newExp = {
+				id: nanoid(),
+				companyName: '',
+				positionTitle: '',
+				mainTasks: '',
+				fromDate: '',
+				toDate: '',
+			};
+
+			return {
+				...prevState,
+				experience: [...prevState.experience, newExp],
+			};
+		});
+	};
+
+	handleDeleteExp = (e, expIndex) => {
+		this.setState(prevState => {
+			const updatedExperience = prevState.experience.filter((exp, index) => {
+				return index !== expIndex;
+			});
+			return {
+				...prevState,
+				experience: updatedExperience,
 			};
 		});
 	};
@@ -151,21 +199,30 @@ class App extends Component {
 							})}
 
 							<div className="buttonContainer">
-								{/* <button>Delete</button> */}
 								<button onClick={this.handleAddNewEdu}>Add Education</button>
 							</div>
-							{/*
-						<Experience
-							handleChange={this.handleChange}
-							handleSubmit={this.handleSubmit}
-							handleAddNew={this.handleAddNew}
-
-							companyName={this.state.experience[1].companyName}
-							positionTitle={this.state.experience[1].positionTitle}
-							mainTasks={this.state.experience[1].mainTasks}
-							fromDate={this.state.experience[1].fromDate}
-							toDate={this.state.experience[1].toDate}
-						/> */}
+							<h4>Experience</h4>
+							{this.state.experience.map((exp, index) => {
+								return (
+									<div
+										className="exp-cont"
+										key={exp.id}
+									>
+										<Experience
+											handleDeleteExp={e => this.handleDeleteExp(e, index)}
+											handleChange={e => this.handleChange(e, index)}
+											companyName={exp.companyName}
+											positionTitle={exp.positionTitle}
+											mainTasks={exp.mainTasks}
+											fromDate={exp.fromDate}
+											toDate={exp.toDate}
+										/>
+									</div>
+								);
+							})}
+							<div className="buttonContainer">
+								<button onClick={this.handleAddNewExp}>Add Experience</button>
+							</div>
 						</section>
 					)}
 					<nav className="nav-preview">
