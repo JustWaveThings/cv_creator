@@ -14,6 +14,7 @@ class General extends Component {
 					placeholder="First Name"
 					type="text"
 					handleChange={this.props.handleChange}
+					value={this.props.firstName}
 				/>
 				<Input
 					name="lastName"

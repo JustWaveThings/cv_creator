@@ -39,7 +39,6 @@ class App extends Component {
 	}
 
 	handleChange = e => {
-		console.log('e.target.name: ', e.target.name, 'e.target.value: ', e.target.value);
 		this.setState(prevState => {
 			return {
 				...prevState,
@@ -67,7 +66,7 @@ class App extends Component {
 		/* 	console.log(this.state.editable);
 		console.log(this.state.education[0].editable);
 		console.log(this.state.experience[0].editable); */
-		console.log(this.state);
+
 		return (
 			<>
 				<nav className="navbar">
