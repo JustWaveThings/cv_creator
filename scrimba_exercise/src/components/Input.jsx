@@ -13,7 +13,6 @@ class Input extends Component {
 						placeholder={this.props.placeholder}
 						onChange={this.props.handleChange}
 						type={this.props.type}
-						value={this.props.value}
 					></input>
 				</div>
 			</>

@@ -10,56 +10,47 @@ class General extends Component {
 			<section className=" general ">
 				<h4>Contact Information</h4>
 				<Input
+					name="firstName"
 					placeholder="First Name"
 					type="text"
 					handleChange={this.props.handleChange}
-					editStatus={this.props.editStatus}
-					value={this.props.firstName}
 				/>
 				<Input
+					name="lastName"
 					placeholder="Last Name"
 					type="text"
 					handleChange={this.props.handleChange}
-					editStatus={this.props.editStatus}
-					value={this.props.lastName}
 				/>
 				<Input
+					name="title"
 					placeholder="Title"
 					type="text"
 					handleChange={this.props.handleChange}
-					editStatus={this.props.editStatus}
-					value={this.props.lastName}
 				/>
 				<Input
+					name="address"
 					placeholder="Address"
 					type="text"
 					handleChange={this.props.handleChange}
-					editStatus={this.props.editStatus}
-					value={this.props.lastName}
 				/>
 
 				<Input
+					name="email"
 					placeholder="Email"
 					type="email"
 					handleChange={this.props.handleChange}
-					editStatus={this.props.editStatus}
-					value={this.props.email}
 				/>
 				<Input
-					label="Phone Number"
 					name="phoneNumber"
 					placeholder="Phone Number"
 					type="tel"
 					handleChange={this.props.handleChange}
-					editStatus={this.props.editStatus}
-					value={this.props.phoneNumber}
 				/>
 				<Input
+					name="description"
 					placeholder="Description"
 					type="text"
 					handleChange={this.props.handleChange}
-					editStatus={this.props.editStatus}
-					value={this.props.lastName}
 				/>
 			</section>
 		);

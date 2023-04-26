@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import General from './components/General';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import { nanoid } from 'nanoid';
 import Display from './components/Display';
+import General from './components/General';
 class App extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			editable: true,
-			general: {
-				firstName: '',
-				lastName: '',
-				email: '',
-				phoneNumber: '',
-			},
-			/* education: [
+			firstName: '',
+			lastName: '',
+			title: '',
+			email: '',
+			phoneNumber: '',
+			address: '',
+			description: '',
+		};
+		/* education: [
 				{
 					id: nanoid(),
 					schoolName: '',
@@ -34,16 +36,14 @@ class App extends Component {
 					toDate: '',
 				},
 			], */
-		};
 	}
 
 	handleChange = e => {
+		console.log('e.target.name: ', e.target.name, 'e.target.value: ', e.target.value);
 		this.setState(prevState => {
 			return {
-				general: {
-					...prevState.general,
-					[e.target.name]: e.target.value,
-				},
+				...prevState,
+				[e.target.name]: e.target.value,
 			};
 		});
 	};
@@ -64,10 +64,10 @@ class App extends Component {
 
 	render() {
 		//console.log('App state: ', this.state);
-		/* 	console.log(this.state.general.editable);
+		/* 	console.log(this.state.editable);
 		console.log(this.state.education[0].editable);
 		console.log(this.state.experience[0].editable); */
-
+		console.log(this.state);
 		return (
 			<>
 				<nav className="navbar">
@@ -77,18 +77,20 @@ class App extends Component {
 					{this.state.editable && (
 						<section className="input">
 							<General
-								handleChange={this.handleChange}
-								editStatus={this.state.editable}
-								firstName={this.state.general.firstName}
-								lastName={this.state.general.lastName}
-								email={this.state.general.email}
-								phoneNumber={this.state.general.phoneNumber}
+								handleChange={e => this.handleChange(e)}
+								firstName={this.state.firstName}
+								lastName={this.state.lastName}
+								email={this.state.email}
+								phoneNumber={this.state.phoneNumber}
+								address={this.state.address}
+								description={this.state.description}
+								title={this.state.title}
 							/>
 							{/* <Education
 							handleChange={this.handleChange}
 							handleSubmit={this.handleSubmit}
 							handleAddNew={this.handleAddNew}
-							editStatus={this.state.editable}
+
 							schoolName={this.state.education[1].schoolName}
 							titleOfStudy={this.state.education[1].titleOfStudy}
 							graduatedYear={this.state.education[1].graduatedYear}
@@ -97,7 +99,7 @@ class App extends Component {
 							handleChange={this.handleChange}
 							handleSubmit={this.handleSubmit}
 							handleAddNew={this.handleAddNew}
-							editStatus={this.state.editable}
+
 							companyName={this.state.experience[1].companyName}
 							positionTitle={this.state.experience[1].positionTitle}
 							mainTasks={this.state.experience[1].mainTasks}
@@ -107,7 +109,6 @@ class App extends Component {
 						</section>
 					)}
 					<nav className="nav-preview">
-						<h4>Preview Resume</h4>
 						<button
 							className="
 						display"
