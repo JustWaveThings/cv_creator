@@ -10,7 +10,7 @@ class App extends Component {
 
 		this.state = {
 			editable: true,
-
+			hideButtons: false,
 			firstName: '',
 			lastName: '',
 			title: '',
@@ -157,6 +157,16 @@ class App extends Component {
 		});
 	};
 
+	handleHideButtons = () => {
+		console.log('hide buttons');
+		this.setState(prevState => {
+			return {
+				...prevState,
+				hideButtons: !prevState.hideButtons,
+			};
+		});
+	};
+
 	render() {
 		console.log(this.state);
 		return (
@@ -167,7 +177,6 @@ class App extends Component {
 							<h1>RESUME CREATOR</h1>
 						</nav>
 						<main>
-							(
 							<section className="input">
 								<h4>Contact Information</h4>
 								<General
@@ -248,7 +257,12 @@ class App extends Component {
 					</div>
 				)}
 				<section className="display">
-					<Display editable={!this.state.editable} />
+					<Display
+						editable={!this.state.editable}
+						handleSubmit={this.handleSubmit}
+						hideButtonsState={this.state.hideButtons}
+						handleHideButtons={this.handleHideButtons}
+					/>
 				</section>
 				{this.state.editable && (
 					<footer>

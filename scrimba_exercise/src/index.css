@@ -28,7 +28,6 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
-	background-color: #bbb7b7;
 }
 
 h1 {
@@ -161,9 +160,10 @@ button:focus {
 }
 
 button.display {
-	margin-top: 1rem;
+	margin: 1rem 0rem;
 	background-color: rgba(0, 128, 0, 0.677);
 	justify-self: center;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 5px;
 }
 
 p {
