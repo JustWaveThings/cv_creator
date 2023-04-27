@@ -161,99 +161,100 @@ class App extends Component {
 		console.log(this.state);
 		return (
 			<>
-				<nav className="navbar">
-					<h1>RESUME CREATOR</h1>
-				</nav>
-				<main>
-					{this.state.editable && (
-						<section className="input">
-							<h4>Contact Information</h4>
-							<General
-								handleChange={e => this.handleChange(e)}
-								firstName={this.state.firstName}
-								lastName={this.state.lastName}
-								email={this.state.email}
-								phoneNumber={this.state.phoneNumber}
-								address={this.state.address}
-								description={this.state.description}
-								title={this.state.title}
-							/>
-							<h4>Education</h4>
-							{this.state.education.map((edu, index) => {
-								return (
-									<div
-										className="edu-cont"
-										key={edu.id}
+				{this.state.editable && (
+					<div className="input-cont">
+						<nav className="navbar">
+							<h1>RESUME CREATOR</h1>
+						</nav>
+						<main>
+							(
+							<section className="input">
+								<h4>Contact Information</h4>
+								<General
+									handleChange={e => this.handleChange(e)}
+									firstName={this.state.firstName}
+									lastName={this.state.lastName}
+									email={this.state.email}
+									phoneNumber={this.state.phoneNumber}
+									address={this.state.address}
+									description={this.state.description}
+									title={this.state.title}
+								/>
+								<h4>Education</h4>
+								{this.state.education.map((edu, index) => {
+									return (
+										<div
+											className="edu-cont"
+											key={edu.id}
+										>
+											<Education
+												handleDeleteEdu={e => this.handleDeleteEdu(e, index)}
+												handleChange={e => this.handleChange(e, index)}
+												institutionName={edu.institutionName}
+												city={edu.city}
+												degree={edu.degree}
+												gpa={edu.gpa}
+												graduatedYear={edu.graduatedYear}
+											/>
+										</div>
+									);
+								})}
+								<div className="buttonContainer">
+									<button
+										className="add"
+										onClick={this.handleAddNewEdu}
 									>
-										<Education
-											handleDeleteEdu={e => this.handleDeleteEdu(e, index)}
-											handleChange={e => this.handleChange(e, index)}
-											institutionName={edu.institutionName}
-											city={edu.city}
-											degree={edu.degree}
-											gpa={edu.gpa}
-											graduatedYear={edu.graduatedYear}
-										/>
-									</div>
-								);
-							})}
-
-							<div className="buttonContainer">
-								<button
-									className="add"
-									onClick={this.handleAddNewEdu}
-								>
-									Add Education
-								</button>
-							</div>
-
-							<h4>Experience</h4>
-							{this.state.experience.map((exp, index) => {
-								return (
-									<div
-										className="exp-cont"
-										key={exp.id}
+										Add Education
+									</button>
+								</div>
+								<h4>Experience</h4>
+								{this.state.experience.map((exp, index) => {
+									return (
+										<div
+											className="exp-cont"
+											key={exp.id}
+										>
+											<Experience
+												handleDeleteExp={e => this.handleDeleteExp(e, index)}
+												handleChange={e => this.handleChange(e, index)}
+												companyName={exp.companyName}
+												positionTitle={exp.positionTitle}
+												mainTasks={exp.mainTasks}
+												fromDate={exp.fromDate}
+												toDate={exp.toDate}
+											/>
+										</div>
+									);
+								})}
+								<div className="buttonContainer">
+									<button
+										className="add"
+										onClick={this.handleAddNewExp}
 									>
-										<Experience
-											handleDeleteExp={e => this.handleDeleteExp(e, index)}
-											handleChange={e => this.handleChange(e, index)}
-											companyName={exp.companyName}
-											positionTitle={exp.positionTitle}
-											mainTasks={exp.mainTasks}
-											fromDate={exp.fromDate}
-											toDate={exp.toDate}
-										/>
-									</div>
-								);
-							})}
-
-							<div className="buttonContainer">
+										Add Experience
+									</button>
+								</div>
+							</section>
+							<nav className="nav-preview, buttonContainer">
 								<button
-									className="add"
-									onClick={this.handleAddNewExp}
+									className="
+							display"
+									onClick={this.handleSubmit}
 								>
-									Add Experience
+									{!this.state.editable ? 'Display Input Fields' : 'Display Resume'}
 								</button>
-							</div>
-						</section>
-					)}
-					<nav className="nav-preview, buttonContainer">
-						<button
-							className="
-						display"
-							onClick={this.handleSubmit}
-						>
-							{!this.state.editable ? 'Display Input Fields' : 'Display Resume'}
-						</button>
-					</nav>
-					<section className="display">
-						<Display />
-					</section>
-				</main>
-
-				<footer>
-					<p>© JustWaveThings</p>
-				</footer>
+							</nav>
+						</main>
+					</div>
+				)}
+				<section className="display">
+					<Display editable={!this.state.editable} />
+				</section>
+				{this.state.editable && (
+					<footer>
+						<p>© JustWaveThings</p>
+					</footer>
+				)}
 			</>
 		);
 	}

@@ -1,0 +1,93 @@
+.display-main-cont {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+}
+.display-main-cont > * {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.5rem;
+	margin: 2rem;
+	background-color: pink;
+}
+
+.header {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0.5rem;
+	background-color: blue;
+}
+.sidebar {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0.5rem;
+	background-color: green;
+}
+.main-cont {
+	display: flex;
+	flex-direction: row;
+	margin: 0.5rem;
+	background-color: red;
+}
+
+.main-cont > * {
+	border: 5px solid orange;
+}
+
+.main {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0.5rem;
+	background-color: yellow;
+}
+
+.display-cont {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0.5rem;
+	background-color: purple;
+}
+
+.display-cont > * {
+	border: 3px solid white;
+}
+
+.label {
+	font-weight: bold;
+	font-size: 0.75rem;
+}
+.value {
+	font-size: 0.75rem;
+	color: white;
+}
+
+.display-description,
+.display-education,
+.display-experience {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0.5rem;
+	background-color: gray;
+}
+
+.display-edu-cont,
+.display-exp-cont {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0.5rem;
+	background-color: gray;
+}
