@@ -199,8 +199,14 @@ class App extends Component {
 							})}
 
 							<div className="buttonContainer">
-								<button onClick={this.handleAddNewEdu}>Add Education</button>
+								<button
+									className="add"
+									onClick={this.handleAddNewEdu}
+								>
+									Add Education
+								</button>
 							</div>
+
 							<h4>Experience</h4>
 							{this.state.experience.map((exp, index) => {
 								return (
@@ -220,12 +226,18 @@ class App extends Component {
 									</div>
 								);
 							})}
+
 							<div className="buttonContainer">
-								<button onClick={this.handleAddNewExp}>Add Experience</button>
+								<button
+									className="add"
+									onClick={this.handleAddNewExp}
+								>
+									Add Experience
+								</button>
 							</div>
 						</section>
 					)}
-					<nav className="nav-preview">
+					<nav className="nav-preview, buttonContainer">
 						<button
 							className="
 						display"
