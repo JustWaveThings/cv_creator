@@ -20,18 +20,21 @@ class General extends Component {
 					placeholder="Last Name"
 					type="text"
 					handleChange={this.props.handleChange}
+					value={this.props.lastName}
 				/>
 				<Input
 					name="title"
 					placeholder="Title"
 					type="text"
 					handleChange={this.props.handleChange}
+					value={this.props.title}
 				/>
 				<Input
 					name="address"
 					placeholder="Address"
 					type="text"
 					handleChange={this.props.handleChange}
+					value={this.props.address}
 				/>
 
 				<Input
@@ -39,18 +42,21 @@ class General extends Component {
 					placeholder="Email"
 					type="email"
 					handleChange={this.props.handleChange}
+					value={this.props.email}
 				/>
 				<Input
 					name="phoneNumber"
 					placeholder="Phone Number"
 					type="tel"
 					handleChange={this.props.handleChange}
+					value={this.props.phoneNumber}
 				/>
 				<Input
 					name="description"
 					placeholder="Description"
 					type="text"
 					handleChange={this.props.handleChange}
+					value={this.props.description}
 				/>
 			</section>
 		);

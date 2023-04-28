@@ -32,6 +32,7 @@ class Experience extends Component {
 					<Input
 						placeholder="Duties / Achievements"
 						type="text"
+						name="mainTasks"
 						handleChange={this.props.handleChange}
 						editStatus={this.props.editStatus}
 						value={this.props.mainTasks}
@@ -53,7 +54,7 @@ class Experience extends Component {
 						value={this.props.toDate}
 					/>
 				</section>
-				<div className="buttonContainer">
+				<div className="button-container">
 					<button
 						className="delete"
 						onClick={this.props.handleDeleteExp}

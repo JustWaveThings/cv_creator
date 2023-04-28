@@ -42,7 +42,7 @@ class Education extends Component {
 						value={this.props.graduatedYear}
 					/>
 				</section>
-				<div className="buttonContainer">
+				<div className="button-container">
 					<button
 						className="delete"
 						onClick={this.props.handleDeleteEdu}

@@ -9,6 +9,61 @@ class App extends Component {
 		super(props);
 
 		this.state = {
+			editable: false,
+			hideButtons: false,
+			firstName: 'Jane',
+			lastName: 'Smith',
+			title: 'Full Stack Web Developer',
+			email: 'Jane.Smith@duck.com',
+			phoneNumber: '(808)-867-5309',
+			address: '123 Anyplace St, Honolulu, HI 96815',
+			description:
+				'Detail-oriented and innovative Full Stack Web Developer with a strong proficiency in React, seeking a challenging position to leverage extensive technical skills and experience. Eager to contribute to the design, development, and optimization of cutting-edge web applications, while fostering a collaborative environment and staying updated on the latest industry trends. Committed to delivering high-quality, scalable, and maintainable solutions that exceed client expectations and drive business growth.',
+			education: [
+				{
+					id: nanoid(),
+					institutionName: 'Northridge Institute of Technology',
+					city: 'Springfield',
+					degree: 'Bachelor of Science in Computer Science',
+					gpa: '3.85',
+					graduatedYear: '2021',
+				},
+			],
+			experience: [
+				{
+					id: nanoid(),
+					companyName: 'TechPioneers Inc.',
+					positionTitle: 'Full Stack Web Developer',
+					location: 'San Francisco, CA',
+					mainTasks:
+						'Developed and maintained web applications using React and Node.js, integrated RESTful APIs, and optimized application performance.',
+					fromDate: 'June 2021',
+					toDate: 'Present',
+				},
+				{
+					id: nanoid(),
+					companyName: 'Innovative Solutions Ltd.',
+					positionTitle: 'Front-end Developer Intern',
+					location: 'New York, NY',
+					mainTasks:
+						'Collaborated with design and development teams to create responsive and interactive UI components using React, HTML, and CSS.',
+					fromDate: 'May 2020',
+					toDate: 'August 2020',
+				},
+				{
+					id: nanoid(),
+					companyName: 'StartupHub',
+					positionTitle: 'Freelance Web Developer',
+					location: 'Remote',
+					mainTasks:
+						'Built and deployed custom websites and applications for various clients, implementing responsive design and modern JavaScript frameworks.',
+					fromDate: 'January 2019',
+					toDate: 'May 2021',
+				},
+			],
+		};
+
+		/* this.state = {
 			editable: true,
 			hideButtons: false,
 			firstName: '',
@@ -39,7 +94,7 @@ class App extends Component {
 					toDate: '',
 				},
 			],
-		};
+		}; */
 	}
 
 	handleChange = (e, eduIndex) => {
@@ -133,6 +188,7 @@ class App extends Component {
 				id: nanoid(),
 				companyName: '',
 				positionTitle: '',
+				location: '',
 				mainTasks: '',
 				fromDate: '',
 				toDate: '',
@@ -166,7 +222,6 @@ class App extends Component {
 			};
 		});
 	};
-
 	render() {
 		console.log(this.state);
 		return (
@@ -208,7 +263,7 @@ class App extends Component {
 										</div>
 									);
 								})}
-								<div className="buttonContainer">
+								<div className="button-container">
 									<button
 										className="add"
 										onClick={this.handleAddNewEdu}
@@ -231,11 +286,12 @@ class App extends Component {
 												mainTasks={exp.mainTasks}
 												fromDate={exp.fromDate}
 												toDate={exp.toDate}
+												location={exp.location}
 											/>
 										</div>
 									);
 								})}
-								<div className="buttonContainer">
+								<div className="button-container">
 									<button
 										className="add"
 										onClick={this.handleAddNewExp}
@@ -244,31 +300,35 @@ class App extends Component {
 									</button>
 								</div>
 							</section>
-							<nav className="nav-preview, buttonContainer">
+							<nav className="nav-preview button-container">
 								<button
-									className="
-							display"
+									className="display"
 									onClick={this.handleSubmit}
 								>
 									{!this.state.editable ? 'Display Input Fields' : 'Display Resume'}
 								</button>
 							</nav>
 						</main>
+						<footer>
+							<p>© JustWaveThings</p>
+						</footer>
 					</div>
 				)}
-				<section className="display">
-					<Display
-						editable={!this.state.editable}
-						handleSubmit={this.handleSubmit}
-						hideButtonsState={this.state.hideButtons}
-						handleHideButtons={this.handleHideButtons}
-					/>
-				</section>
-				{this.state.editable && (
-					<footer>
-						<p>© JustWaveThings</p>
-					</footer>
-				)}
+				<Display
+					editable={!this.state.editable}
+					handleSubmit={this.handleSubmit}
+					hideButtonsState={this.state.hideButtons}
+					handleHideButtons={this.handleHideButtons}
+					firstName={this.state.firstName}
+					lastName={this.state.lastName}
+					email={this.state.email}
+					phoneNumber={this.state.phoneNumber}
+					address={this.state.address}
+					description={this.state.description}
+					title={this.state.title}
+					educationArray={this.state.education}
+					experienceArray={this.state.experience}
+				/>
 			</>
 		);
 	}
