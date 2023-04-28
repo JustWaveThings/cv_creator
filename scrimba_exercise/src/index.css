@@ -172,9 +172,6 @@ h5::after {
 	flex-direction: column;
 }
 
- {
-	box-sizing: border-box;
-}
 h1,
 h2,
 h3,
