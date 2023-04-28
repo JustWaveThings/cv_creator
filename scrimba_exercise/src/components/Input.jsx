@@ -6,7 +6,6 @@ class Input extends Component {
 	}
 
 	render() {
-		console.log(this.props.name === 'mainTasks');
 		if (this.props.name === 'mainTasks' || this.props.name === 'description') {
 			return (
 				<>

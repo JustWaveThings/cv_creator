@@ -3,8 +3,6 @@ import '../index.css';
 
 class Display extends Component {
 	render() {
-		console.log(this.props);
-		console.log(this.props.experienceArray);
 		return (
 			<>
 				{this.props.editable && (
@@ -42,7 +40,10 @@ class Display extends Component {
 									<h5>Education</h5>
 									{this.props.educationArray.map(edu => {
 										return (
-											<div className="display-edu-cont">
+											<div
+												key={edu.id}
+												className="display-edu-cont"
+											>
 												<div className="display-info-cont">
 													<div className="value year">{edu.graduatedYear}</div>
 													<div className="edu-right">
@@ -68,7 +69,10 @@ class Display extends Component {
 									<h5>Experience</h5>
 									{this.props.experienceArray.map(exp => {
 										return (
-											<div className="display-exp-cont">
+											<div
+												key={exp.id}
+												className="display-exp-cont"
+											>
 												<div className="value year">
 													{exp.fromDate} - {exp.toDate}
 												</div>

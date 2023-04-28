@@ -9,7 +9,7 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			editable: false,
+			editable: true,
 			hideButtons: false,
 			firstName: 'Jane',
 			lastName: 'Smith',
@@ -62,39 +62,6 @@ class App extends Component {
 				},
 			],
 		};
-
-		/* this.state = {
-			editable: true,
-			hideButtons: false,
-			firstName: '',
-			lastName: '',
-			title: '',
-			email: '',
-			phoneNumber: '',
-			address: '',
-			description: '',
-			education: [
-				{
-					id: nanoid(),
-					institutionName: '',
-					city: '',
-					degree: '',
-					gpa: '',
-					graduatedYear: '',
-				},
-			],
-			experience: [
-				{
-					id: nanoid(),
-					companyName: '',
-					positionTitle: '',
-					location: '',
-					mainTasks: '',
-					fromDate: '',
-					toDate: '',
-				},
-			],
-		}; */
 	}
 
 	handleChange = (e, eduIndex) => {
@@ -222,8 +189,43 @@ class App extends Component {
 			};
 		});
 	};
+
+	handleReset = () => {
+		this.setState({
+			editable: true,
+			hideButtons: false,
+			firstName: '',
+			lastName: '',
+			title: '',
+			email: '',
+			phoneNumber: '',
+			address: '',
+			description: '',
+			education: [
+				{
+					id: nanoid(),
+					institutionName: '',
+					city: '',
+					degree: '',
+					gpa: '',
+					graduatedYear: '',
+				},
+			],
+			experience: [
+				{
+					id: nanoid(),
+					companyName: '',
+					positionTitle: '',
+					location: '',
+					mainTasks: '',
+					fromDate: '',
+					toDate: '',
+				},
+			],
+		});
+	};
+
 	render() {
-		console.log(this.state);
 		return (
 			<>
 				{this.state.editable && (
@@ -307,6 +309,12 @@ class App extends Component {
 								>
 									{!this.state.editable ? 'Display Input Fields' : 'Display Resume'}
 								</button>
+								<button
+									className="delete"
+									onClick={this.handleReset}
+								>
+									Erase Sample Data
+								</button>
 							</nav>
 						</main>
 						<footer>
@@ -315,6 +323,7 @@ class App extends Component {
 					</div>
 				)}
 				<Display
+					key={this.state.id}
 					editable={!this.state.editable}
 					handleSubmit={this.handleSubmit}
 					hideButtonsState={this.state.hideButtons}
